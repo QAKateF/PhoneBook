@@ -61,7 +61,6 @@ public class LoginTest {
         wd.findElement(By.xpath("//button[1]")).click();
 
         //assert
-
     }
 
     @AfterMethod
