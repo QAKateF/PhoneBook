@@ -9,15 +9,15 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class LoginTest {
-    WebDriver wd;
+public class LoginTest extends TestBase {
+//    WebDriver wd;
 
-    @BeforeMethod
-    public void init() {
-        wd = new ChromeDriver();
-        wd.navigate().to("https://telranedu.web.app/home");
-        wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-    }
+//    @BeforeMethod
+//    public void init() {
+//        wd = new ChromeDriver();
+//        wd.navigate().to("https://telranedu.web.app/home");
+//        wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//    }
 
     @Test
     public void loginPositiveTest() {
@@ -61,6 +61,13 @@ public class LoginTest {
         wd.findElement(By.xpath("//button[1]")).click();
 
         //assert
+    }
+    @Test
+    public void loginNegativeTestWrongPassword() {
+        String email = "qwerty@gm.com", password = "abcd123$";
+        openLoginForm();
+        fillLoginForm(email, password);
+        submitLoginForm();
     }
 
     @AfterMethod
