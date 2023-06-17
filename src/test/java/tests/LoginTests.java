@@ -15,12 +15,11 @@ public class LoginTests extends TestBase{
 
     @Test
     public void loginPositiveTestBase(){
-        String email = "abc@def.com", password = "$Abcdef12345";
+        String email = "qwerty@gm.com", password = "abcD123$";
         app.getUser().openLoginForm();
         app.getUser().fillLoginForm(email, password);
         app.getUser().submitLogin();
         app.getUser().pause(3000);
-//        Assert.assertTrue(wd.findElements(By.xpath("//button")).size() > 0);
         Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button")));
     }
 }
