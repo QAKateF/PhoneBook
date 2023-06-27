@@ -22,4 +22,15 @@ public class LoginTests extends TestBase{
         app.getUser().pause(3000);
         Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button")));
     }
+
+    @Test
+    public void loginNegativeWrongEmail(){
+        String email = "qwertygm.com", password = "abcD123$";
+        app.getUser().openLoginForm();
+        app.getUser().fillLoginForm(email, password);
+        app.getUser().submitLogin();
+//      app.getUser().pause(3000);
+        Assert.assertTrue(app.getUser().isWrongFormatMessage());
+        Assert.assertTrue(app.getUser().isAlertPresent());
+    }
 }
