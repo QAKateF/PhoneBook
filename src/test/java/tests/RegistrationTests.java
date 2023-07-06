@@ -4,8 +4,9 @@ import Models.User;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import tests.TestBase;
 
-public class RegistrationTests extends TestBase{
+public class RegistrationTests extends TestBase {
     @Test
     public void registrationPositive(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
