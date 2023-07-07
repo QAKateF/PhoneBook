@@ -27,13 +27,19 @@ public class DeleteContactTest extends TestBase {
             AddNewContactTest addContact = new AddNewContactTest();
             addContact.addNewContactPositive();
         }
-        int count1 = app.getHelperContact().countContact();
+        int countBefore = app.getHelperContact().countContact();
         app.getHelperContact().openExistContact();
-        app.getHelperContact().removeContact();
+        app.getHelperContact().removeOneContact();
         app.getHelperContact().pause(3000);
-        int count2 = app.getHelperContact().countContact();
+        int countAfter = app.getHelperContact().countContact();
         app.getHelperContact().pause(3000);
-        Assert.assertTrue(count1 - count2 == 1);
+        Assert.assertTrue(countBefore - countAfter == 1);
+    }
+
+    @Test
+    public void removeAllContacts(){
+        app.getHelperContact().removeAllContact();
+        Assert.assertTrue(!app.getHelperContact().isContactFind());
     }
 
     }

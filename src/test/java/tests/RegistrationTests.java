@@ -3,10 +3,17 @@ package tests;
 import Models.User;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import tests.TestBase;
 
 public class RegistrationTests extends TestBase {
+    @BeforeMethod
+    public void precondition(){
+        if(TestBase.app.getUser().isLogged()){
+            TestBase.app.getUser().logout();
+        }
+    }
     @Test
     public void registrationPositive(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;

@@ -36,14 +36,31 @@ public class HelperContact extends HelperBase {
     }
 
     public void openExistContact() {
-        click(By.cssSelector(".contact-item_card__2SOIM:first-child"));
+        click(By.cssSelector(".contact-item_card__2SOIM"));
     }
 
-    public void removeContact(){
+    public void removeOneContact(){
         click(By.xpath("//*[text()='Remove']"));
+    }
+
+    public void editContact(Contact contact){
+        click(By.xpath("//*[text()='Edit']"));
+        type(By.xpath("//input[@placeholder='Phone']"), contact.getPhone());
+        click(By.xpath("//*[text()='Save']"));
     }
 
     public int countContact() {
         return wd.findElements(By.xpath("//div[@class='contact-item_card__2SOIM']")).size();
     }
+
+    public void removeAllContact(){
+        while(isContactFind()){
+            openExistContact();
+            pause(3000);
+            removeOneContact();
+            pause(3000);
+        }
+    }
+
+
 }
