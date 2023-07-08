@@ -8,8 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HelperUser extends HelperBase{
-
-
     public HelperUser(WebDriver wd) {
         super(wd);
     }
@@ -26,7 +24,6 @@ public class HelperUser extends HelperBase{
         type(By.xpath("//input[1]"), user.getEmail());
         type(By.xpath("//input[2]"), user.getPassword());
     }
-
     public void submitRegistration(){
         click(By.xpath("//button[2]"));
     }

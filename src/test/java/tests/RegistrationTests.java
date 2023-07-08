@@ -43,6 +43,7 @@ public class RegistrationTests extends TestBase {
         app.getUser().openLoginForm();
         app.getUser().fillLoginForm(email, password);
         app.getUser().submitRegistration();
+        Assert.assertTrue(app.getUser().isAlertPresent());
     }
     @Test
     public void registrationNegativeWrongPassword(){
@@ -51,6 +52,7 @@ public class RegistrationTests extends TestBase {
         app.getUser().openLoginForm();
         app.getUser().fillLoginForm(email, password);
         app.getUser().submitRegistration();
+        Assert.assertTrue(app.getUser().isAlertPresent());
     }
 
 }
