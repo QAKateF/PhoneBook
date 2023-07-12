@@ -30,7 +30,7 @@ public class ApplicationManager {
         return helperContact;
     }
 
-    @BeforeSuite
+    @BeforeSuite(alwaysRun = true)
     public void init(){
         if(browser.equals(BrowserType.CHROME)) {
             wd = new EventFiringWebDriver(new ChromeDriver()); //wd = new ChromeDriver();
@@ -47,17 +47,17 @@ public class ApplicationManager {
         wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
-    @AfterSuite
+    @AfterSuite(alwaysRun = true)
     public void tearDown(){
         wd.quit();
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void startLogger(Method method) {
         logger.info(method.getName() + "is started");
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void finishLogger(Method method) {
         logger.info("*********************************************************************************************");
     }

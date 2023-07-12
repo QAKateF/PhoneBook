@@ -8,13 +8,13 @@ import org.testng.annotations.Test;
 import tests.TestBase;
 
 public class RegistrationTests extends TestBase {
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void precondition(){
         if(TestBase.app.getUser().isLogged()){
             TestBase.app.getUser().logout();
         }
     }
-    @Test
+    @Test(groups = {"smoke", "positive", "regress"})
     public void registrationPositive(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
         String email = "qwerty" + i + "@gm.com", password = "abcD123$";
@@ -25,7 +25,7 @@ public class RegistrationTests extends TestBase {
         Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button")));
     }
 
-    @Test
+    @Test(groups = {"positive"})
     public void registrationPositiveUser(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
         User user = new User().withEmail("qwerty" + i + "@gm.com").withPassword("abcD123$");
@@ -36,7 +36,7 @@ public class RegistrationTests extends TestBase {
         Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button")));
     }
 
-    @Test
+    @Test(groups = {"regress", "negative"})
     public void registrationNegativeWrongEmail(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
         String email = "qwerty" + i + "gm.com", password = "abcD123$";
@@ -45,7 +45,7 @@ public class RegistrationTests extends TestBase {
         app.getUser().submitRegistration();
         Assert.assertTrue(app.getUser().isAlertPresent());
     }
-    @Test
+    @Test(groups = {"regress", "negative"})
     public void registrationNegativeWrongPassword(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
         String email = "qwerty" + i + "@gm.com", password = "abcD123";

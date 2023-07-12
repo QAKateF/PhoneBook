@@ -10,14 +10,14 @@ import org.testng.annotations.Test;
 @Listeners(TestNGListener.class)
 
 public class LoginTests extends TestBase {
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void precondition(){
         if(TestBase.app.getUser().isLogged()){
             TestBase.app.getUser().logout();
         }
     }
 
-    @Test
+    @Test(groups = {"smoke", "positive"})
     public void loginPositiveTestBase(){
         String email = "qwerty@gm.com", password = "abcD123$";
         TestBase.app.getUser().openLoginForm();
@@ -27,7 +27,7 @@ public class LoginTests extends TestBase {
         Assert.assertTrue(TestBase.app.getUser().isElementPresent(By.xpath("//button")));
     }
 
-    @Test
+    @Test(groups = {"regress", "negative"})
     public void loginNegativeWrongEmail(){
         String email = "qwertygm.com", password = "abcD123$";
         TestBase.app.getUser().openLoginForm();

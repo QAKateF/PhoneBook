@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 public class DeleteContactTest extends TestBase {
     Logger logger = LoggerFactory.getLogger(DeleteContactTest.class);
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void precondition(){
          if(!app.getUser().isLogged()){
              String email = "qwerty@gm.com", password = "abcD123$";
