@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tests.LoginTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-08-03T12:30:37" hostname="LAPTOP-31DUH12N" time="12.419">
+<testsuite name="tests.LoginTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-08-03T13:30:30" hostname="LAPTOP-31DUH12N" time="10.982">
   <properties/>
-  <testcase name="loginNegativeWrongEmail" classname="tests.LoginTests" time="3.261"/>
-  <testcase name="loginPositiveTestBase" classname="tests.LoginTests" time="4.119"/>
+  <testcase name="loginNegativeWrongEmail" classname="tests.LoginTests" time="2.34"/>
+  <testcase name="loginPositiveTestBase" classname="tests.LoginTests" time="3.561"/>
   <system-out><![CDATA[Wrong email or password
 ]]></system-out>
-  <system-err><![CDATA[console.warn: LoginRecipes: "Falling back to a synchronous message for: https://telranedu.web.app."
-console.warn: LoginRecipes: "Falling back to a synchronous message for: https://telranedu.web.app."
-]]></system-err>
+  <system-err><![CDATA[]]></system-err>
 </testsuite>
