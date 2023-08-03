@@ -1,6 +1,7 @@
 package tests;
 
 import Models.User;
+import manager.ProviderData;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -20,6 +21,17 @@ public class RegistrationTests extends TestBase {
         String email = "qwerty" + i + "@gm.com", password = "abcD123$";
         app.getUser().openLoginForm();
         app.getUser().fillLoginForm(email, password);
+        app.getUser().submitRegistration();
+        app.getUser().pause(3000);
+        Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button")));
+    }
+
+    @Test(groups = {"smoke", "positive", "regress"}, dataProvider = "userDto_CSV", dataProviderClass = ProviderData.class)
+    public void registrationPositiveCSV(User user){
+        logger.info("registrationPositive starts with credentials: email: "
+                + user.getEmail() + " & password: " + user.getPassword());
+        app.getUser().openLoginForm();
+        app.getUser().fillLoginForm(user);
         app.getUser().submitRegistration();
         app.getUser().pause(3000);
         Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button")));

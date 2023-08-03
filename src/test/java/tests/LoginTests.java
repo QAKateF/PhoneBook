@@ -33,7 +33,6 @@ public class LoginTests extends TestBase {
         TestBase.app.getUser().openLoginForm();
         TestBase.app.getUser().fillLoginForm(email, password);
         TestBase.app.getUser().submitLogin();
-//      app.getUser().pause(3000);
         Assert.assertTrue(TestBase.app.getUser().isWrongFormatMessage());
         Assert.assertTrue(TestBase.app.getUser().isAlertPresent());
     }
