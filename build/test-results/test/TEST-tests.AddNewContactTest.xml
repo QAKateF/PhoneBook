@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tests.AddNewContactTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-08-06T12:38:25" hostname="LAPTOP-31DUH12N" time="20.479">
+  <properties/>
+  <testcase name="addNewContactPositive" classname="tests.AddNewContactTest" time="5.088"/>
+  <testcase name="addNewContactPositive" classname="tests.AddNewContactTest" time="3.87"/>
+  <testcase name="addNewContactPositive" classname="tests.AddNewContactTest" time="3.768"/>
+  <testcase name="addNewContactPositive" classname="tests.AddNewContactTest" time="3.821"/>
+  <testcase name="addNewContactPositive" classname="tests.AddNewContactTest" time="3.813"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
